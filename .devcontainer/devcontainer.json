@@ -10,7 +10,9 @@
 				"ms-azuretools.vscode-docker",
 				"eamodio.gitlens",
 				"mhutchie.git-graph",
-				"banacorn.agda-mode"
+				"banacorn.agda-mode",
+				"brunnerh.insert-unicode",
+				"oijaz.unicode-latex"
 			]
 		}
 	}

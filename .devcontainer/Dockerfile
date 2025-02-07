@@ -28,8 +28,11 @@ RUN cd "$(agda --print-agda-data-dir)/lib/prim" \
     && find . -name "*.agda" -exec agda {} \;
 
 # Install Agda stdlib
-RUN wget -O agda-stdlib.tar.gz https://github.com/agda/agda-stdlib/archive/v2.2.tar.gz \
-    && tar -xvzf agda-stdlib.tar.gz -C /usr/local/ \
+RUN wget -q -O agda-stdlib.tar.gz https://github.com/agda/agda-stdlib/archive/v2.2.tar.gz \
+    && tar -xzf agda-stdlib.tar.gz -C /usr/local/ \
     && mkdir -p $(agda  --print-agda-app-dir) \
     && echo "/usr/local/agda-stdlib-2.2/standard-library.agda-lib" > $(agda --print-agda-app-dir)/libraries \
-    && rm -f agda-stdlib.tar.gz
+    && cd /usr/local/agda-stdlib-2.2 \
+    && cabal install \
+    && rm -f /agda-stdlib.tar.gz \
+    && echo "standard-library" > $(agda  --print-agda-app-dir)/defaults
