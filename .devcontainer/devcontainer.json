@@ -1,0 +1,17 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java
+{
+	"name": "Agda",
+	"image": "agda:2025-02-07",
+	"remoteUser": "root",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-docker",
+				"eamodio.gitlens",
+				"mhutchie.git-graph",
+				"banacorn.agda-mode"
+			]
+		}
+	}
+}
